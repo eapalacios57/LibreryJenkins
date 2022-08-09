@@ -1,5 +1,5 @@
-def build(Map params){
-    sh """
+def config(){
+        sh """
         if [ -f Settings.xml ] ; then rm Settings.xml ; fi
         
         echo '<?xml version="1.0" encoding="UTF-8"?>' >> Settings.xml
@@ -13,6 +13,9 @@ def build(Map params){
         echo '		</mirror>' >> Settings.xml
         echo '	</mirrors>' >> Settings.xml
         echo '</settings>' >> Settings.xml
-        mvn clean package -P${params.profile} --settings Settings.xml
         """
+}
+
+def build(Map params){
+    sh "docker run --name maven --rm -v $PWD/workspace/Library-Test_Library-Test_master:/home/ -w /home/ maven:3.5.4-jdk-7-slim mvn clean package -P${params.profile} --settings Settings.xml"
 }

@@ -1,0 +1,16 @@
+{
+  "extension": "war",
+  "projectName": "simoncotizadores",
+  "channelName": "simoncotizador_notificaciones",
+  "master": {
+    "urlWl": "t3://10.20.30.40:6001",
+    "idUserANDPassWl": "sventas_weblogic_console_prod",
+    "idUserANDPassShh": "sventas_weblogic_ssh_prod",
+    "artifactNameWl": "SimonQuotation_Production",
+    "domainWl": "/oracle/app/wlogic12c/Oracle/Middleware/user_projects/domains/simon/bin/",
+    "pathWl": "/oracle/app/wlogic12c/Oracle/Middleware/user_projects/domains/simon/deployJenkins/App/SimonVentas",
+    "clusterWl": "ClusterSimon2",
+    "serverWlSsh": "10.20.30.40",
+    "puertoWlSsh": 22
+  }
+}

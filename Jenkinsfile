@@ -1,19 +1,21 @@
-@Library('share-library') _
 pipeline {
     agent any 
     stages {
         stage('Example Build') {
             steps {
-                sh 'Hello Word!!'
+                echo "Hello Word"
             }
         }
         stage('Build') {
-            agent{
-                label 'nodo-vm'
-            }
             steps {
                 script{
-                    build.build(profile:"dev")
+                     
+                    JENKINS_FILE = readJSON file: 'Jenkinsfile.json';
+                    def argCore = JENKINS_FILE[BRANCH_NAME]
+                    for( int i = 0; i < argCore.size(); i++ ) {
+                        def arg = argCore[i];
+                        sh "$arg"
+                    }
                 }
             }
         }
