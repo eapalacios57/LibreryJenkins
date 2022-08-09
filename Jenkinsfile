@@ -12,7 +12,9 @@ pipeline {
                 label 'nodo-vm'
             }
             steps {
-                build.build(profile:"dev")
+                script{
+                    build.build(profile:"dev")
+                }
             }
         }
     }
