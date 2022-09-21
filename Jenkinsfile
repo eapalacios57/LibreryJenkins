@@ -14,7 +14,8 @@ pipeline {
                     def argCore = JENKINS_FILE[BRANCH_NAME]
                     for( int i = 0; i < argCore.size(); i++ ) {
                         def arg = argCore.keySet();
-                        sh "$arg"
+                        def key = arg[i]
+                        sh "$key"
                     }
                 }
             }
