@@ -1,4 +1,5 @@
 def statusStage(WEBLOGIC_CREDENTIAL_USR, WEBLOGIC_CREDENTIAL_PSW, urlWl, clusterWl, ServerWL1, ServerWL2=''){
+    
     sh """
     touch statusServer.py
     echo 'connect("${WEBLOGIC_CREDENTIAL_USR}","${WEBLOGIC_CREDENTIAL_PSW}","${urlWl}")' >> statusServer.py
